@@ -1,5 +1,6 @@
 package com.example.segundaentrega.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.util.Date;
 import java.util.List;
@@ -17,6 +18,7 @@ public class Sale {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "customerId")
+    @JsonIgnore
     private Customer customer;
 
     @Column(name = "totalAmount", nullable = false)
@@ -26,6 +28,10 @@ public class Sale {
     private List<SalesProduct> salesProducts;
 
     // Getters y Setters
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public int getId() {
         return id;

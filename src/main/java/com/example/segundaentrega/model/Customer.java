@@ -1,5 +1,6 @@
 package com.example.segundaentrega.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.util.List;
 
@@ -21,9 +22,14 @@ public class Customer {
     private String phone;
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<Sale> sales;
 
     // Getters y Setters
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public int getId() {
         return id;
