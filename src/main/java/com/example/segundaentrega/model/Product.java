@@ -21,6 +21,10 @@ public class Product {
 
     // Getters y Setters
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public int getId() {
         return id;
     }
